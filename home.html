@@ -41,7 +41,9 @@
     <div class="flex gap-2">
       <input id="searchInput" type="text" placeholder="Search issues..."
   class="input input-bordered input-sm w-64" />
-      <button class="btn btn-primary btn-sm">+ New Issue</button>
+      <button onclick="newIssueModal.showModal()" class="btn btn-primary btn-sm">
+  + New Issue
+</button>
     </div>
 
   </div>
@@ -83,6 +85,38 @@
 <div class="max-w-7xl mx-auto px-6 pb-10">
   <div id="issuesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
 </div>
+<dialog id="newIssueModal" class="modal">
+  <div class="modal-box max-w-md">
+
+    <h3 class="font-semibold text-lg mb-4">Create New Issue</h3>
+
+    <input id="newTitle" type="text" placeholder="Title"
+      class="input input-bordered w-full mb-3" />
+
+    <textarea id="newDesc" placeholder="Description"
+      class="textarea textarea-bordered w-full mb-3"></textarea>
+
+    <select id="newStatus" class="select select-bordered w-full mb-3">
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+    </select>
+
+    <select id="newPriority" class="select select-bordered w-full mb-3">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+
+    <input id="newLabel" type="text" placeholder="Label (bug/help wanted)"
+      class="input input-bordered w-full mb-4" />
+
+    <div class="modal-action">
+      <button class="btn btn-primary btn-sm" onclick="createIssue()">Create</button>
+      <button class="btn btn-sm" onclick="newIssueModal.close()">Cancel</button>
+    </div>
+
+  </div>
+</dialog>
 <dialog id="issueModal" class="modal">
   <div class="modal-box max-w-lg p-6">
 

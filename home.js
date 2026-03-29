@@ -111,6 +111,46 @@ closedTab.onclick = () => {
   displayIssues(closed);
 };
 
+function createIssue() {
+
+  const title = document.getElementById("newTitle").value;
+  const description = document.getElementById("newDesc").value;
+  const status = document.getElementById("newStatus").value;
+  const priority = document.getElementById("newPriority").value;
+  const label = document.getElementById("newLabel").value;
+
+  if (!title || !description) {
+    alert("Please fill all required fields");
+    return;
+  }
+
+  const newIssue = {
+    id: allIssues.length + 1,
+    title,
+    description,
+    status,
+    priority,
+    label,
+    author: "You",
+    createdAt: new Date().toLocaleDateString()
+  };
+
+  // Add to array
+  allIssues.unshift(newIssue);
+
+  // Update UI
+  updateCounts(allIssues);
+  displayIssues(allIssues);
+
+  // Close modal
+  document.getElementById("newIssueModal").close();
+
+  // Reset form
+  document.getElementById("newTitle").value = "";
+  document.getElementById("newDesc").value = "";
+  document.getElementById("newLabel").value = "";
+}
+
 function openModal(issue) {
   const isOpen = issue.status === "open";
 
