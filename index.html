@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GitHub Issue Tracker</title>
+    <!--Tailwind-->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!--Daisy UI-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!--Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<!--Font Awsome-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+<style>
+    *{
+        font-family: "Geist", sans-serif;
+    }
+</style>
 </head>
-<body>
-    Hello
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <div class="bg-white p-8 rounded-xl shadow-md w-96 text-center">
+
+    <div class="text-5xl mb-4">
+      <i class="fa-brands fa-github"></i>
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-xl font-semibold">Sign in to manage your issues</h2>
+    <p class="text-gray-500 text-sm mb-6">Welcome back!</p>
+
+    <input id="username" type="text" class="input input-bordered w-full mb-3" placeholder="Enter username"
+      class="input input-bordered w-full mb-3" />
+
+    <input id="password" type="password" class="input input-bordered w-full mb-4" placeholder="Enter password"
+      class="input input-bordered w-full mb-4" />
+
+    <button id="loginBtn" class="btn btn-primary w-full">
+      Sign In
+    </button>
+
+    <p class="text-sm text-gray-500">
+      Username: <b>admin</b><br>
+      Password: <b>admin123</b>
+    </p>
+
+  </div>
+
 </body>
+    
+<script src="login.js"></script>
 </html>

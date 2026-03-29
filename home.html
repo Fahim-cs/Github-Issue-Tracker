@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issue Tracker | Home</title>
+     <!--Tailwind-->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!--Daisy UI-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!--Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<!--Font Awsome-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+<style>
+    *{
+        font-family: "Geist", sans-serif;
+    }
+</style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<div class="bg-white border-b">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+
+    <div class="flex items-center gap-2">
+      <i class="fa-brands fa-github text-xl"></i>
+      <h1 class="font-semibold">GitHub Issues Tracker</h1>
+    </div>
+
+    <div class="flex gap-2">
+      <input id="searchInput" type="text" placeholder="Search issues..."
+  class="input input-bordered input-sm w-64" />
+      <button class="btn btn-primary btn-sm">+ New Issue</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Tabs + Count -->
+<div class="max-w-7xl mx-auto px-6 py-6">
+
+  <div class="bg-white p-2 rounded-lg shadow-sm w-fit mb-4">
+    <button id="allTab" class="btn btn-sm btn-primary">All</button>
+    <button id="openTab" class="btn btn-sm btn-ghost">Open</button>
+    <button id="closedTab" class="btn btn-sm btn-ghost">Closed</button>
+  </div>
+
+  <div class="flex justify-between items-center mb-6">
+    <div>
+      <p id="issueCount" class="font-semibold text-lg">50 Issues</p>
+      <p class="text-sm text-gray-500">Track and manage your project issues</p>
+    </div>
+
+    <div class="flex gap-4 text-sm items-center">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+        <span id="openCount">Open</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+        <span id="closedCount">Closed</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 🔥 IMPORTANT: Card Container -->
+<div class="max-w-7xl mx-auto px-6 pb-10">
+  <div id="issuesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+</div>
+<dialog id="issueModal" class="modal">
+  <div class="modal-box max-w-lg p-6">
+
+    <!-- Title -->
+    <h3 id="modalTitle" class="font-semibold text-lg mb-3"></h3>
+
+    <!-- Status + meta -->
+    <div class="flex items-center gap-3 text-sm mb-3">
+      <span id="modalStatus" class="px-2 py-1 rounded bg-green-100 text-green-600 text-xs"></span>
+      <span id="modalMeta" class="text-gray-500"></span>
+    </div>
+
+    <!-- Labels -->
+    <div id="modalLabels" class="flex gap-2 mb-4"></div>
+
+    <!-- Description -->
+    <p id="modalDesc" class="text-sm text-gray-600 mb-4"></p>
+
+    <!-- Bottom Info -->
+    <div class="bg-gray-100 p-3 rounded-md text-sm flex justify-between">
+
+      <div>
+        <p class="text-gray-500">Assignee:</p>
+        <p id="modalAuthor" class="font-medium"></p>
+      </div>
+
+      <div>
+        <p class="text-gray-500">Priority:</p>
+        <span id="modalPriority" class="text-xs px-2 py-1 rounded-full"></span>
+      </div>
+
+    </div>
+
+    <!-- Close -->
+    <div class="modal-action">
+      <button class="btn btn-primary btn-sm" onclick="issueModal.close()">Close</button>
+    </div>
+
+  </div>
+</dialog>
+<script src="home.js"></script>
+</body>
+</html>
