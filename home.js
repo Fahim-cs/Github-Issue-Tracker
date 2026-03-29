@@ -32,19 +32,23 @@ function displayIssues(issues) {
   issues.forEach(issue => {
     const div = document.createElement("div");
 
-    const isOpen = issue.status === "open";
+    const isOpen = issue.status.toLowerCase().trim() === "open";
     const borderColor = isOpen ? "border-green-500" : "border-purple-500";
-    const dotColor = isOpen ? "bg-green-500" : "bg-purple-500";
 
     let priorityColor = "bg-gray-100 text-gray-500";
     if (issue.priority === "high") priorityColor = "bg-red-100 text-red-500";
     if (issue.priority === "medium") priorityColor = "bg-yellow-100 text-yellow-600";
 
+    const statusIcon = isOpen
+      ? "assets/Open-Status.png"
+      : "assets/Closed- Status .png";
+
     div.className = `bg-white p-4 rounded-xl shadow-sm border-t-4 ${borderColor}`;
 
     div.innerHTML = `
       <div class="flex justify-between items-center mb-2">
-        <span class="w-2 h-2 rounded-full ${dotColor}"></span>
+        <img src="${statusIcon}" class="w-4 h-4" />
+
         <span class="text-xs px-2 py-1 rounded-full ${priorityColor}">
           ${issue.priority ? issue.priority.toUpperCase() : "N/A"}
         </span>

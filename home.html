@@ -33,7 +33,7 @@
 <div class="bg-white border-b">
   <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-4">
       <i class="fa-brands fa-github text-xl"></i>
       <h1 class="font-semibold">GitHub Issues Tracker</h1>
     </div>
@@ -56,10 +56,13 @@
     <button id="closedTab" class="btn btn-sm btn-ghost">Closed</button>
   </div>
 
-  <div class="flex justify-between items-center mb-6">
-    <div>
-      <p id="issueCount" class="font-semibold text-lg">50 Issues</p>
-      <p class="text-sm text-gray-500">Track and manage your project issues</p>
+  <div class="flex justify-between items-center gap-2 ">
+    <div class="flex justify-between gap-2">
+      <img src="assets/Aperture.png" alt="">
+      <div>
+        <p id="issueCount" class="font-semibold text-lg">50 Issues</p>
+        <p class="text-sm text-gray-500">Track and manage your project issues</p>
+      </div>
     </div>
 
     <div class="flex gap-4 text-sm items-center">
@@ -76,7 +79,7 @@
 
 </div>
 
-<!-- 🔥 IMPORTANT: Card Container -->
+<!--  Card Container -->
 <div class="max-w-7xl mx-auto px-6 pb-10">
   <div id="issuesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
 </div>
